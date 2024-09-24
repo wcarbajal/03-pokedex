@@ -1,12 +1,13 @@
-import { IsInt, IsNumber, IsString, Min, MinLength } from "class-validator";
+import { IsInt,  IsPositive, IsString, Min, MinLength } from "class-validator";
 export class CreatePokemonDto {
+ // isInt, isPositive, min 1
+ @IsInt()
+ @IsPositive()
+ @Min(1)
+ no: number;
 
-  @IsInt({  message: 'No debe ser un número negativo' })
-  @IsNumber( )
-  @Min(1, { message: 'No debe ser menor que 1' })
-  no: number;
-
-  @IsString({ message: 'Debe ser texto' })
-  @MinLength(1, { message: 'El nombre debe tener al menos 1 caracter' })
-  name: string;
+ // isString, Minlenth 1
+ @IsString()
+ @MinLength(1)
+ name: string;
 }
